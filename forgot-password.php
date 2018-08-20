@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Sunxcoin Affilate Login</title>
+  <title>Sunxcoin Affilate Dashboard | Forgot Password</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../vendors/iconfonts/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
@@ -57,10 +57,10 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 text-center">
-                    <a href="login.html" class="text-small text-black">Return to login</a>
+                    <a href="login" class="text-small text-black">Return to login</a>
                     </div>
                     <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 text-center">
-                    <a href="register.html" class="text-small text-black">Create new account</a>
+                    <a href="register" class="text-small text-black">Create new account</a>
                     </div>
                 </div>
               </form>
