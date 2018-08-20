@@ -1,0 +1,17 @@
+footer#authfooter{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+}
+a:hover{
+    text-decoration: none !important;
+}
+/* .form-check .form-check-label .input-helper:after{
+    color: #082159 !important;
+} */
+
+.form-check.form-check-flat label input:checked + .input-helper:before{
+    background-color: #0089FF !important;
+}
