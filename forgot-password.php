@@ -31,12 +31,17 @@
         <div class="row w-100 mx-auto">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper pb-4">
-              <h3 class="text-center">Login</h3>
+                <h3 class="text-center">Forgot Password</h3>
+                <div class="text-center">
+                    <p>
+                        We will send you an email with instructions on how to reset your password.
+                    </p>
+                </div>
               <form action="#">
                 <div class="form-group">
                   <label class="label">Email</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Your e-mail address">
+                    <input type="text" class="form-control" placeholder="Your email address">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -45,36 +50,24 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="label">Password</label>
-                  <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Your password">
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="mdi mdi-check-circle-outline"></i>
-                      </span>
+                  <button class="btn btn-primary submit-btn btn-block ld-ext-right running">
+                      Reset Password
+                      <div class="ld ld-ring ld-spin mr-5"></div>
+                </button>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 text-center">
+                    <a href="login.html" class="text-small text-black">Return to login</a>
                     </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block">Login</button>
-                </div>
-                <div class="form-group d-flex justify-content-between">
-                    <div class="form-check form-check-flat mt-0">
-                      <label class="form-check-label">
-                        <input type="checkbox" class="form-check-input" checked> Keep me signed in
-                      </label>
+                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 text-center">
+                    <a href="register.html" class="text-small text-black">Create new account</a>
                     </div>
-                  <a href="forgot-password.php" class="text-small forgot-password text-black">Forgot Password</a>
-                </div>
-               
-                <div class="text-block text-center my-3">
-                  <span class="text-small font-weight-semibold">Don't have an account yet?</span>
-                  <a href="register.html" class="text-black text-small">Create new account</a>
                 </div>
               </form>
             </div>
             <br>
             <br>
+            <!-- <p class="footer-text text-center">Copyright © 2018 Sunxcoin.</p> -->
           </div>
         </div>
       </div>
@@ -83,7 +76,6 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
-
   <!-- Footer Section -->
   <footer id="authfooter">
       <p class="footer-text text-center">Copyright © 2018 Sunxcoin. Designed by  <a href="http://Fstackdev.net/" target="_blank">FStackDev</a></p>

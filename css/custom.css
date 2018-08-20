@@ -1,0 +1,10 @@
+footer#authfooter{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+}
+a:hover{
+    text-decoration: none !important;
+}
