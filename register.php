@@ -52,7 +52,7 @@
               <form method="POST" id="register-form"  action="./backend/operation/customerReg.php">
                 <div class="form-group">
                   <div class="input-group">
-                    <input class="form-control" name="referal_code" placeholder="Refered by" value="<?php echo $refid; ?>">
+                    <input class="form-control" name="referal_code" placeholder="Refered by" value="<?php echo $refid; ?>" disabled="disabled">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
