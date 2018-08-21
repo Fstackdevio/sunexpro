@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    require_once('backend/util/functions.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,13 +34,25 @@
       <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
         <div class="row w-100 mx-auto">
           <div class="col-lg-4 mx-auto">
+             <?php
+                $auth = new Auth();
+                $auth->getSessions();
+                if(isset($_SESSION['message'])){
+            ?>
+            <div id="sessmsg" class="<?php echo $_SESSION['messagetype']; ?> alert-dismissible" style="text-align: center;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <?php echo $_SESSION['message']; ?>
+            </div>
+            <?php
+                }
+            ?>
             <div class="auto-form-wrapper pb-4">
               <h3 class="text-center">Login</h3>
-              <form action="#">
+              <form id="login-form" method="POST" action="./backend/operation/customerLogin.php">
                 <div class="form-group">
                   <label class="label">Email</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Your e-mail address">
+                    <input type="text" class="form-control" placeholder="Your e-mail address" name="email" id="email">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -47,7 +63,7 @@
                 <div class="form-group">
                   <label class="label">Password</label>
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Your password">
+                    <input type="password" class="form-control" placeholder="Your password" name="password" id="password">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>

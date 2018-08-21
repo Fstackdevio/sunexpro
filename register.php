@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+  require_once('backend/util/functions.php');
+  $refid = isset($_GET['referal']) ? $_GET['referal'] : '';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,12 +35,24 @@
       <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
         <div class="row w-100 mx-auto">
           <div class="col-lg-4 mx-auto">
+            <?php
+                $auth = new Auth();
+                $auth->getSessions();
+                if(isset($_SESSION['message'])){
+            ?>
+            <div id="sessmsg" class="<?php echo $_SESSION['messagetype']; ?> alert-dismissible" style="text-align: center;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <?php echo $_SESSION['message']; ?>
+            </div>
+            <?php
+                }
+            ?>
             <h2 class="text-center mb-4">Register</h2>
             <div class="auto-form-wrapper">
-              <form action="#">
+              <form method="POST" id="register-form"  action="./backend/operation/customerReg.php">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="diabled" class="form-control" placeholder="Refered by ">
+                    <input class="form-control" name="referal_code" placeholder="Refered by" value="<?php echo $refid; ?>">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -43,7 +60,7 @@
                     </div>
                   </div> <br>
                   <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Email address">
+                    <input type="text" class="form-control" placeholder="Email address" name="email">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -53,7 +70,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" name="password">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
@@ -63,7 +80,7 @@
                 </div>
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Confirm Password">
+                    <input type="password" class="form-control" placeholder="Confirm Password" name="password_confirmation">
                     <div class="input-group-append">
                       <span class="input-group-text">
                         <i class="mdi mdi-check-circle-outline"></i>
