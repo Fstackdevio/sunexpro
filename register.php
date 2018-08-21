@@ -113,6 +113,18 @@
   </div>
   <!-- container-scroller -->
   <!-- plugins:js -->
+  <?php 
+    function destroysess(){
+        unset($_SESSION['message']);
+        unset($_SESSION['messagetype']);
+    }
+  ?>
+  <script>
+        setTimeout(function(){
+          $('#sessmsg').remove();
+        }, 5000);
+        var runQuery = "<?php destroysess(); ?>"; 
+  </script>
   <script src="./main/vendors/js/vendor.bundle.base.js"></script>
   <script src="./main/vendors/js/vendor.bundle.addons.js"></script>
   <!-- endinject -->

@@ -105,7 +105,18 @@
       <p class="footer-text text-center">Copyright © 2018 Sunxcoin. Designed by  <a href="http://fstackdev.net/" target="_blank">FStackDev</a></p>
   </footer>
 
-
+  <?php 
+    function destroysess(){
+        unset($_SESSION['message']);
+        unset($_SESSION['messagetype']);
+    }
+  ?>
+  <script>
+        setTimeout(function(){
+          $('#sessmsg').remove();
+        }, 5000);
+        var runQuery = "<?php destroysess(); ?>"; 
+  </script>
   <!-- plugins:js -->
   <script src="./main/vendors/js/vendor.bundle.base.js"></script>
   <script src="./main/vendors/js/vendor.bundle.addons.js"></script>
