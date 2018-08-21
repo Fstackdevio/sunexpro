@@ -19,7 +19,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/samples/orders.html">
+            <a class="nav-link" href="affiliate-views.php">
               <i class="menu-icon icon-people"> </i>
               <span class="menu-title">Affiliates</span>
             </a>
