@@ -1,0 +1,13 @@
+.panel{
+	box-shadow: 1px 5px 18px 0px rgba(0,0,0,0.1) !important;
+}
+.qr{
+	display: flex;
+	justify-content: center;
+}
+img.color-icon {
+	height: 90px;
+    width: 90px;
+    margin: 2rem;
+    /*vertical-align: middl*/
+}

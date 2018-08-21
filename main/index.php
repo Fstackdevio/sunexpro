@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="vendors/iconfonts/font-awesome/css/font-awesome.min.css" />
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
@@ -47,8 +48,8 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-flex justify-content-between pb-2">
-                        <h5>Total Direct referals</h5>
-                        <i class="icon-docs"></i>
+                        <h5>Total Referrals</h5>
+                        <i class="fa fa-users"></i>
                       </div>
                       <div class="progress progress-md">
                         <div class="progress-bar bg-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -60,8 +61,8 @@
                   <div class="card">
                     <div class="card-body">
                       <div class="d-flex justify-content-between pb-2">
-                        <h5>Total Indirect referals</h5>
-                        <i class="icon-pie-chart"></i>
+                        <h5>Total Team Sale</h5>
+                        <i class="fa fa-sitemap"></i>
                       </div>
                       
                       <div class="progress progress-md">
@@ -75,7 +76,7 @@
                     <div class="card-body">
                       <div class="d-flex justify-content-between pb-2">
                         <h5>Total Amount Earned</h5>
-                        <i class="icon-wallet"></i>
+                        <i class="fa fa-handshake-o"></i>
                       </div>
                      
                       <div class="progress progress-md">
@@ -89,7 +90,7 @@
                     <div class="card-body">
                       <div class="d-flex justify-content-between pb-2">
                         <h5>Withdrawal</h5>
-                        <i class="icon-screen-desktop"></i>
+                        <i class="fa fa-money"></i>
                       </div>
                       
                       <div class="progress progress-md">
@@ -112,15 +113,7 @@
 </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="container-fluid clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-             Sunxcoin   <a href="http://Sunxcoin.com/" target="_blank"> Designed by  <a href="http://Sunxcoin.com/" target="_blank">Fstackdev </a></span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-              <i class="mdi mdi-heart-outline text-danger"> by Fstackdev</i>
-            </span>
-          </div>
-        </footer>
+        <?php include('./partials/footer.php'); ?>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
