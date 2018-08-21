@@ -4,27 +4,53 @@
           <li class="nav-item nav-profile">
             <img src="images/favicon.png" alt="profile image">
             <p class="text-center font-weight-medium">Gennady Korotskivic</p>
+            <p class="text-center font-weight-light">Referral Code: 19031Bauz</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href="./index">
               <i class="menu-icon icon-grid"></i>
               <span class="menu-title">Dashboard</span>
             </a>
-          </li>
+        </li>
           <li class="nav-item">
-            <a class="nav-link" href="pricing-table.php">
+            <a class="nav-link" href="./packages">
               <i class="menu-icon icon-present"></i>
               <span class="menu-title">Packages</span>
             </a>
           </li>
-           <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link" href="pages/samples/orders.html">
-              <i class="menu-icon icon-eye"> </i>
-              <span class="menu-title">Affiliate View</span>
+              <i class="menu-icon icon-people"> </i>
+              <span class="menu-title">Affiliates</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#my-account" aria-expanded="false" aria-controls="ui-basic">
+              <i class="menu-icon icon-user-following"></i>
+              <span class="menu-title">My Account</span>
+            </a>
+            <div class="collapse" id="my-account">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">          
+                <a class="nav-link" href="./profile">My Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./change-password">Change Password</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="identification">Upload ID</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./support">
+              <i class="menu-icon icon-support"> </i>
+              <span class="menu-title">Support Center</span>
             </a>
           </li>
          
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon icon-star"></i>
               <span class="menu-title">Basic UI Elements</span>
@@ -146,7 +172,7 @@
                 </li>
               </ul>
             </div>
-          </li>
+          </li> -->
           
         </ul>
       </nav>
