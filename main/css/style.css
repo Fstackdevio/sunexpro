@@ -20278,11 +20278,11 @@ ul {
   .preview-list.bordered .preview-item:last-child {
     border-bottom: 0; }
 
-/* Pricing table */
+/* f table */
 .pricing-table .pricing-card .pricing-card-body {
   padding: 50px 56px 43px; }
   .pricing-table .pricing-card .pricing-card-body .plan-features {
-    width: 100%;
+    width: 80%;
     margin-bottom: 32px; }
     .pricing-table .pricing-card .pricing-card-body .plan-features li {
       text-align: left;

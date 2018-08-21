@@ -6,15 +6,21 @@
             <p class="text-center font-weight-medium">Gennady Korotskivic</p>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="index.php">
               <i class="menu-icon icon-grid"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/samples/pricing-table">
+            <a class="nav-link" href="pricing-table.php">
               <i class="menu-icon icon-present"></i>
               <span class="menu-title">Packages</span>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link" href="pages/samples/orders.html">
+              <i class="menu-icon icon-eye"> </i>
+              <span class="menu-title">Affiliate View</span>
             </a>
           </li>
          
@@ -26,8 +32,7 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item">
-                  <a class="nav-link" href="pages/ui-features/badges.html">Badges</a>
+                <li class="nav-item                   <a class="nav-link" href="pages/ui-features/badges.html">Badges</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="pages/ui-features/modals.html">Modals</a>
