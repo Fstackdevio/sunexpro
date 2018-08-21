@@ -2,14 +2,19 @@
 <nav class="sidebar sidebar-offcanvas sidebar-dark" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
-            <img src="images/faces/face1.jpg" alt="profile image">
-            <p class="text-center font-weight-medium">Larry Garner</p>
+            <img src="images/favicon.png" alt="profile image">
+            <p class="text-center font-weight-medium">Gennady Korotskivic</p>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="index.html">
-              <i class="menu-icon icon-diamond"></i>
+              <i class="menu-icon icon-grid"></i>
               <span class="menu-title">Dashboard</span>
-              <div class="badge badge-success">3</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="pages/samples/pricing-table">
+              <i class="menu-icon icon-present"></i>
+              <span class="menu-title">Packages</span>
             </a>
           </li>
          
