@@ -759,7 +759,7 @@ class Mailing extends Utility{
 					                                        <td style="font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;font-size: 15px;font-weight: bold" align="center"> 
 					                                          <div> 
 					                                            <div>
-					                                              <a href="https://localhost/3plecoin/activation/index.php?email='. $email .'&action=activate&token='.$token . '" style="background-color: #800000;border-radius: 2px;color: #ffffff;display: inline-block;line-height: 40px;text-align: center;text-decoration: none;width: 160px;-webkit-text-size-adjust: none" target="_blank" rel="external nofollow noopener noreferrer" tabindex="-1">Click To Activate
+					                                              <a href="https://localhost/sunexpro/activation/index.php?email='. $email .'&action=activate&token='.$token . '" style="background-color: #800000;border-radius: 2px;color: #ffffff;display: inline-block;line-height: 40px;text-align: center;text-decoration: none;width: 160px;-webkit-text-size-adjust: none" target="_blank" rel="external nofollow noopener noreferrer" tabindex="-1">Click To Activate
 					                                              </a>
 					                                            </div> 
 					                                            <div> 
