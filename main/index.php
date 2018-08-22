@@ -1,3 +1,21 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  require_once ('./../backend/util/functions.php');
+  $utility = new Utility();
+  $auth = new Auth();
+  $inactive = 12000;
+  $session_life = time() - $_SESSION['timestamp'];
+  if (!isset($_SESSION['user_id'])){  
+    header("Location: ./../login.php");  
+  } else {
+    $_SESSION['last_activity'] = time();
+  }
+  $usid = $_SESSION['user_id'];
+  $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
+    $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
