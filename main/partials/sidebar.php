@@ -25,6 +25,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="Withdraw.php">
+              <i class="menu-icon icon-basket-loaded"> </i>
+              <span class="menu-title">Withdraw</span>
+            </a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#my-account" aria-expanded="false" aria-controls="ui-basic">
               <i class="menu-icon icon-user-following"></i>
               <span class="menu-title">My Account</span>
