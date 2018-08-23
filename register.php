@@ -60,6 +60,24 @@
                     </div>
                   </div> <br>
                   <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Full name" name="fullname">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Username" name="Username">
+                    <div class="input-group-append">
+                      <span class="input-group-text">
+                        <i class="mdi mdi-check-circle-outline"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                  <div class="input-group">
                     <input type="text" class="form-control" placeholder="Email address" name="email">
                     <div class="input-group-append">
                       <span class="input-group-text">

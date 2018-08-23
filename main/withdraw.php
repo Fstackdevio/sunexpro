@@ -14,9 +14,11 @@
   <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
+  <link rel="stylesheet" href="vendors/icheck/skins/all.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">s
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -31,6 +33,51 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+          
+                  <div class="card" style="margin-left: auto; margin-right: auto; width: 80%;">
+                    <div class="card-body">
+                      <h4 class="card-title">Withdrawal form</h4>
+                      
+                      <form class="forms-sample">
+                       <div class="form-group row">
+                         
+                          <div class="col-sm-6">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="Bitcoinwallet" id="Bitcoin" value="" checked>Bitcoin
+                            </div>
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="form-radio">
+                              <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="Etherumwallet" id="Etherum" value="option2">Etherum
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Wallet address</label>
+                          <input type="email" class="form-control" id="Walletid" placeholder="Enter Walletid">
+                        </div>
+                        <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend bg-primary border-primary">
+                            <span class="input-group-text bg-transparent text-white">$</span>
+                          </div>
+                          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                          <div class="input-group-append bg-primary border-primary">
+                            <span class="input-group-text bg-transparent text-white">.00</span>
+                          </div>
+                        </div>
+                      </div>
+                        <button type="submit" class="btn btn-success mr-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                      </form>
+                    </div>
+                  </div>
+               
+
+
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
