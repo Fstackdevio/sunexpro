@@ -445,7 +445,7 @@ class Auth extends Utility{
 					if($this->insert($table, $fields,  $values)){
 							$_SESSION['message'] = "Registered Successfully Please Check your Mail for Activation";
 							$_SESSION['messagetype'] ="alert alert-success";
-							$this->redirect('./../../register.php?referal='.$code);
+							$this->redirect('./../../login.php?referal='.$code);
 					}else{
 						$_SESSION['message'] = "Error inserting";
 						// $_SESSION['message'] = $send_verify->mail_verification($values['email'], $token);
@@ -673,10 +673,10 @@ class Mailing extends Utility{
 			    // Optional name
 			$this->mail->isHTML(true);                                  // Set email format to HTML
 
-			$this->mail->Subject = 'Class Verification Email';
-			$this->mail->From = "adeojo.emmanuel@lmu.edu.ng";
-			$this->mail->FromName = "class";
-			$this->mail->Subject = "Class  - Verification Email";
+			$this->mail->Subject = 'SUNX Verification Email';
+			$this->mail->From = "SUNXPRO";
+			$this->mail->FromName = "SUNX";
+			$this->mail->Subject = "SUNX  - Verification Email";
 			$msg = '<html>
 					  <head>
 					    <title>Activation Email</title>
@@ -727,7 +727,7 @@ class Mailing extends Utility{
 					                                        <td style="font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;font-size: 23px;line-height: 28px"> 
 					                                          <div style="font-size: 23px;color: #313131;font-weight: bold;text-decoration: none">
 					                                            <div style="text-align: center">
-					                                              <strong>Welcome to 3plecoin Account Activation</strong>
+					                                              <strong>Welcome to SunX Account Activation</strong>
 					                                            </div>
 					                                          </div> 
 					                                        </td> 
@@ -798,7 +798,7 @@ class Mailing extends Utility{
 					                                    <tbody>
 					                                      <tr> 
 					                                        <td style="font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;color: #808285;font-size: 13px;line-height: 19px;font-weight: bold" align="center" valign="top">
-					                                          <a href="http://w3coin.com" target="_blank" style="color: #808285;text-decoration: none" rel="external nofollow noopener noreferrer" tabindex="-1">3PLECOIN</a>
+					                                          <a href="http://w3coin.com" target="_blank" style="color: #808285;text-decoration: none" rel="external nofollow noopener noreferrer" tabindex="-1">SUNX</a>
 					                                        </td> 
 					                                      </tr> 
 					                                    </tbody>
