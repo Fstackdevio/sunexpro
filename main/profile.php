@@ -14,7 +14,7 @@
   }
   $usid = $_SESSION['user_id'];
   $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
-    $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+  $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
 
 ?>
 <!DOCTYPE html>
@@ -50,51 +50,64 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-12">     
-            <h4 class="page-title mb-3">Update your profile information</h4>          
+            <h4 class="page-title mb-3">Update your profile information</h4><br>
+            <?php
+                $auth = new Auth();
+                $auth->getSessions();
+                if(isset($_SESSION['message'])){
+            ?>
+            <div id="sessmsg" class="<?php echo $_SESSION['messagetype']; ?> alert-dismissible" style="text-align: center;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <?php echo $_SESSION['message']; ?>
+            </div>
+            <?php
+                }
+            ?>       
               <div class="container">
                 <div class="card">
                     <div class="card-body">
                     <!-- <h4 class="card-title mb-3">Edit your profile information</h4> -->
-                    <form class="cmxform" id="profile" method="get" action="#">
+                    <form class="cmxform" id="profile" method="POST" action="./../backend/operation/update_profile.php">
                         <fieldset>
                         <div class="form-group">
                             <label for="fullname">Full Name</label>
-                            <input id="fullname" class="form-control" name="fullname" type="text" value="Gennady Korotskivic" disabled>
+                            <input id="fullname" class="form-control" name="fullname" type="text" value="<?php echo $userdetails['fullname']; ?> " disabled>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="email" class="form-control" name="email" type="email" value="gennadium192@gmail.com">
+                            <input id="email" class="form-control" name="email" type="email" value="<?php echo $userdetails['email']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="sponsor">Sponsor</label>
-                            <input id="sponsor" class="form-control" name="sponsor" type="text" value="Adeojo Emmanuel" disabled>
+                            <input id="sponsor" class="form-control" name="sponsor" type="text" value="<?php echo $userdetails['sponsor']; ?>" disabled>
                         </div>
                         <div class="form-group">
                             <label for="country">Country</label>
-                            <input id="country" class="form-control" name="country" type="text">
+                            <input id="country" class="form-control" name="country" type="text" value="<?php echo $userdetails['country']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="state">State / Province</label>
-                            <input id="state" class="form-control" name="state" type="text">
+                            <input id="state" class="form-control" name="state" type="text" value="<?php echo $userdetails['state']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="city">City</label>
-                            <input id="city" class="form-control" name="city" type="text">
+                            <input id="city" class="form-control" name="city" type="text" value="<?php echo $userdetails['city']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="address">Address</label>
-                            <textarea id="address" class="form-control" name="address" rows="4" type="text"></textarea>
+                            <textarea id="address" class="form-control" name="address" rows="4" type="text"> <?php echo $userdetails['address']; ?> </textarea>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input id="phone" class="form-control" name="phone" type="text" placeholder="+23490347282">
+                            <input id="phone" class="form-control" name="phone" type="text" placeholder="+234xxxxxxxxx" value="<?php echo $userdetails['phone']; ?>">
                         </div>
                         <div class="form-group">
                             <label for="gender">Gender</label>
-                            <select class="form-control" id="gender">
-                                <option>Male</option>
-                                <option>Female</option>
-                                <option>Prefer not to say</option>
+                            <select class="form-control" id="gender" name="gender">
+                                <option><?php echo $userdetails['gender']; ?></option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Prefer Unknown">Prefer not to say</option>
                             </select>
                         </div>
                         <input class="btn btn-primary" type="submit" value="Update">
@@ -138,7 +151,18 @@
   <script src="./js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-
+<?php 
+    function destroysess(){
+        unset($_SESSION['message']);
+        unset($_SESSION['messagetype']);
+    }
+  ?>
+  <script>
+        setTimeout(function(){
+          $('#sessmsg').remove();
+        }, 5000);
+        var runQuery = "<?php destroysess(); ?>"; 
+  </script>
   <!-- End custom js for this page-->
 </body>
 
