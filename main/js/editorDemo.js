@@ -20,7 +20,8 @@
   /*simplemde editor*/
   if ($("#simpleMde").length) {
     var simplemde = new SimpleMDE({
-      element: $("#simpleMde")[0]
+      element: $("#simpleMde")[0],
+      placeholder: "Your message..."
     });
   }
 
