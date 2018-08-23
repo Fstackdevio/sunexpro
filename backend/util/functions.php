@@ -483,7 +483,7 @@ class Auth extends Utility{
 	    				$_SESSION['user_id'] = $res['_id'];
 			    		$_SESSION['email'] = $res['email'];
 			    		$_SESSION['timestamp']=time();
-			    		$this->redirect('./../../index-2.html');
+			    		$this->redirect('./../../main/index.php');
 			    	}else{
 			    		//not activated
 		    			$_SESSION['message'] = "account Not ACTIVATED";
