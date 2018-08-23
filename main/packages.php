@@ -51,15 +51,15 @@
           <div class="row">
             <div class="col-12">               
               <div class="container text-center">
-                <h4 class="mb-3 mt-3">Start up your Bussiness today</h4>
-                <p class="w-75 mx-auto mb-5">Choose a plan that suits you best.</p>
+                <h4 class="mb-3 mt-3">Enjoy the full benefits of the SUNXCoin Affiliate Program</h4>
+                <p class="w-75 mx-auto mb-5">Choose a plan that suits you best to get started.</p>
                 
                 <div class="row pricing-table">
                   
                   <div class="col-md-4 col-sm-6 grid-margin stretch-card pricing-card">
                     <div class="card border-primary border pricing-card-body">
                       <h3 class="text-default">Agent Package</h3> <br>
-                      <img src="./images/packages/Agent-package.jpg" alt="packages" class="center">
+                      <img src="./images/packages/agent.png" alt="packages" class="center">
                       <br>
                       <div class="wrapper">
                         <br>
@@ -71,7 +71,7 @@
                   <div class="col-md-4 col-sm-6 grid-margin stretch-card pricing-card">
                     <div class="card border-primary border pricing-card-body">
                       <h3 class="text-default">Starter Package</h3> <br>
-                      <img src="./images/packages/Starter-package.jpg" alt="packages" class="center">
+                      <img src="./images/packages/starter.png" alt="packages" class="center">
                       <br>
                       <div class="wrapper">
                         <br>
@@ -83,7 +83,7 @@
                   <div class="col-md-4 col-sm-6 grid-margin stretch-card pricing-card">
                     <div class="card border-primary border pricing-card-body">
                       <h3 class="text-default">Trader Package</h3> <br>
-                      <img src="./images/packages/Trader-package.jpg" alt="packages" class="center">
+                      <img src="./images/packages/trader.png" alt="packages" class="center">
                       <br>
                       <div class="wrapper">
                         <br>
@@ -95,7 +95,7 @@
                   <div class="col-md-4 col-sm-6 grid-margin stretch-card pricing-card">
                     <div class="card border-primary border pricing-card-body">
                       <h3 class="text-default">Ruby Package</h3> <br>
-                      <img src="./images/packages/Ruby-package.jpg" alt="packages" class="center">
+                      <img src="./images/packages/ruby.png" alt="packages" class="center">
                       <br>
                       <div class="wrapper">
                         <br>
@@ -106,8 +106,8 @@
 
                   <div class="col-md-4 col-sm-6 grid-margin stretch-card pricing-card">
                     <div class="card border-primary border pricing-card-body">
-                      <h3 class="text-default">Rubbylight </h3> <br>
-                      <img src="./images/packages/Rubylight-package.jpg" alt="packages" class="center">
+                      <h3 class="text-default">Rubylight </h3> <br>
+                      <img src="./images/packages/rubylight.png" alt="packages" class="center">
                       <br>
                       <div class="wrapper">
                         <br>
@@ -119,7 +119,7 @@
                   <div class="col-md-4 col-sm-6 grid-margin stretch-card pricing-card">
                     <div class="card border-primary border pricing-card-body">
                       <h3 class="text-default">Platinum Package</h3> <br>
-                      <img src="./images/packages/platinum-package.jpg" alt="packages" class="center">
+                      <img src="./images/packages/platinum.png" alt="packages" class="center">
                       <br>
                       <div class="wrapper">
                         <br>

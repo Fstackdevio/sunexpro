@@ -36,6 +36,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -52,67 +53,48 @@
               <h4 class="page-title">Dashboard</h4>
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
-                  <p class="mb-0">Summary for
-                    <b class="mb-0">August 2018</b>
+                  <p class="mb-0">Account Balance: 
+                    <b class="mb-0 ml-2">$7,223.3</b>
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <div class="col-12 card-statistics">
-              <div class="row">
-                <div class="col-12 col-sm-6 col-md-3 grid-margin stretch-card card-tile">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between pb-2">
-                        <h5>Total Referrals</h5>
-                        <i class="fa fa-users"></i>
+            <div class="col-md-6 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title mb-0">Direct Referrals</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                      <div class="d-flex">
+                        <h2 class="mb-0">$10,200</h2>
                       </div>
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                      <small class="text-gray">earned from your direct referrals</small>
+                    </div>
+                    <div class="d-inline-block">
+                      <div class="bg-primary px-4 py-3 rounded">
+                        <i class="fa fa-sitemap text-white icon-lg"></i>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-3 grid-margin stretch-card card-tile">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between pb-2">
-                        <h5>Total Team Sale</h5>
-                        <i class="fa fa-sitemap"></i>
+              </div>
+            </div>
+            <div class="col-md-6 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title mb-0">Indirect Referrals</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-inline-block pt-3">
+                      <div class="d-flex">
+                        <h2 class="mb-0">$2,256</h2>
                       </div>
-                      
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-success w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
+                      <small class="text-gray">earned from your indirect referrals</small>
                     </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 grid-margin stretch-card card-tile">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between pb-2">
-                        <h5>Total Amount Earned</h5>
-                        <i class="fa fa-handshake-o"></i>
-                      </div>
-                     
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-danger w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-3 grid-margin stretch-card card-tile">
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="d-flex justify-content-between pb-2">
-                        <h5>Withdrawal</h5>
-                        <i class="fa fa-money"></i>
-                      </div>
-                      
-                      <div class="progress progress-md">
-                        <div class="progress-bar bg-warning w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="d-inline-block">
+                      <div class="bg-success px-4 py-3 rounded">
+                        <i class="icon icon-people text-white icon-lg"></i>
                       </div>
                     </div>
                   </div>
@@ -120,15 +102,66 @@
               </div>
             </div>
           </div>
-          
+          <div class="row">
+            <div class="col-md-4 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-row align-items-top">
+                    <i class="icon icon-basket-loaded text-primary icon-md"></i>
+                    <div class="ml-3">
+                      <h3 class="text-primary">$5,232.47</h3>
+                      <p class="mt-2 text-muted card-text">Total amount withdrawn</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-row align-items-top">
+                    <i class="icon icon-wallet text-success icon-md"></i>
+                    <div class="ml-3">
+                      <h3 class="text-success">$12,456</h3>
+                      <p class="mt-2 text-muted card-text">Total amount earned</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-row align-items-top">
+                    <i class="icon icon-star text-warning icon-md"></i>
+                    <div class="ml-3">
+                      <h3 class="text-warning">Level 3</h3>
+                      <p class="mt-2 text-muted card-text">Your leadership rank</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <h4 class="page-title ml-3 mb-3">Notifications</h4>
+            <div class="col-md-12">
+              <div class="card px-3 py-4">
+                <div class="card-body text-center">
+                  <p class="no-notif-icon"><i class="icon icon-bubble text-danger"></i></p>
+                  <h3><span class="text-danger">There are no notifications available at this time</span></h3>
+                </div>
+              </div>
+            </div>
+          </div>
           </ul>
         </nav>
       </div>
-    </div>
+    <!-- </div>
   </div>
 </div>
 </div>
-</div>
+</div> -->
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <?php include('./partials/footer.php'); ?>

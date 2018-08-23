@@ -15,6 +15,10 @@ a:hover{
 .form-check.form-check-flat label input:checked + .input-helper:before{
     background-color: #0089FF !important;
 }
-.CodeMirror {
-    min-height: 200px;
+.CodeMirror, .CodeMirror-scroll {
+	min-height: 200px !important;
+}
+.no-notif-icon {
+    font-weight: 300;
+    font-size: 3em;
 }
