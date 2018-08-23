@@ -15,6 +15,7 @@
   $usid = $_SESSION['user_id'];
   $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
     $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
