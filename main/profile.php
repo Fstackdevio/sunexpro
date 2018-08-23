@@ -49,7 +49,7 @@
       <div class="main-panel" >
         <div class="content-wrapper">
           <div class="row">
-            <div class="col-12">     
+            <div class="col-8">     
             <h4 class="page-title mb-3">Update your profile information</h4><br>
             <?php
                 $auth = new Auth();
@@ -69,14 +69,42 @@
                     <!-- <h4 class="card-title mb-3">Edit your profile information</h4> -->
                     <form class="cmxform" id="profile" method="POST" action="./../backend/operation/update_profile.php">
                         <fieldset>
-                        <div class="form-group">
-                            <label for="fullname">Full Name</label>
-                            <input id="fullname" class="form-control" name="fullname" type="text" value="<?php echo $userdetails['fullname']; ?> " disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input id="email" class="form-control" name="email" type="email" value="<?php echo $userdetails['email']; ?>">
-                        </div>
+                            <div class="row">
+                                <div class="col-6 col-small-12">
+                                    <div class="form-group">
+                                        <label for="fullname">Full Name</label>
+                                        <input id="fullname" class="form-control" name="fullname" type="text" value="<?php echo $userdetails['fullname']; ?> " disabled>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-small-12">
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input id="email" class="form-control" name="email" type="email" value="<?php echo $userdetails['email']; ?>">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="phone">Phone</label>
+                                        <input id="phone" class="form-control" name="phone" type="text" placeholder="+234xxxxxxxxx" value="<?php echo $userdetails['phone']; ?>">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select class="form-control" id="gender" name="gender">
+                                            <option><?php echo $userdetails['gender']; ?></option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Prefer Unknown">Prefer not to say</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        
                         <div class="form-group">
                             <label for="sponsor">Sponsor</label>
                             <input id="sponsor" class="form-control" name="sponsor" type="text" value="<?php echo $userdetails['sponsor']; ?>" disabled>
@@ -96,19 +124,6 @@
                         <div class="form-group">
                             <label for="address">Address</label>
                             <textarea id="address" class="form-control" name="address" rows="4" type="text"> <?php echo $userdetails['address']; ?> </textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input id="phone" class="form-control" name="phone" type="text" placeholder="+234xxxxxxxxx" value="<?php echo $userdetails['phone']; ?>">
-                        </div>
-                        <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <select class="form-control" id="gender" name="gender">
-                                <option><?php echo $userdetails['gender']; ?></option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Prefer Unknown">Prefer not to say</option>
-                            </select>
                         </div>
                         <input class="btn btn-primary" type="submit" value="Update">
                         </fieldset>

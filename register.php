@@ -59,6 +59,7 @@
                       </span>
                     </div>
                   </div> <br>
+                 <div class="form-group">
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Full name" name="fullname">
                     <div class="input-group-append">
@@ -67,7 +68,8 @@
                       </span>
                     </div>
                   </div>
-                </div>
+                </div> 
+                <div class="form-group">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Username" name="Username">
                     <div class="input-group-append">
