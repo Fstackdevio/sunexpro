@@ -55,6 +55,8 @@
               <span class="menu-title">Support Center</span>
             </a>
           </li>
+          <br> <br>
+          <button class="btn btn-default submit-btn btn-block" style="margin-left: auto; margin-right: auto; width: 50%;">Logout</button>
          
           <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
