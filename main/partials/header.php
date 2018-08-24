@@ -1,3 +1,15 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  require_once ('./../backend/util/functions.php');
+  $utility = new Utility();
+  $auth = new Auth();
+  $usid = $_SESSION['user_id'];
+  $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
+  $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+
+?>
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
@@ -29,19 +41,37 @@
               </div>
             </form>
           </li>
-          
+          <?php
+              $getumessage =  $utility->easyquery("SELECT * FROM notifications WHERE userid = $usid");
+              if($getumessage == NULL){
+                $notifications_No = 0;
+              }else{
+                $notifications_No = $getumessage;
+              }
+          ?>
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="mdi mdi-bell-outline"></i>
-              <span class="count">4</span>
+              <?php if($notifications_No == 0){
+              }else{
+              ?>
+              <span class="count"><?php echo $notifications_No; ?></span>
+              <?php 
+                }
+              ?>
+              
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
               <a class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 4 new notifications
+                
+                <p class="mb-0 font-weight-normal float-left">You have <?php echo $notifications_No; ?> new notifications
                 </p>
                 <span class="badge badge-pill badge-warning float-right">View all</span>
               </a>
               <div class="dropdown-divider"></div>
+              <?php 
+                foreach ($getumessage as $message) {
+              ?>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                   <div class="preview-icon bg-success">
@@ -49,40 +79,16 @@
                   </div>
                 </div>
                 <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium text-dark">Application Error</h6>
+                  <h6 class="preview-subject font-weight-medium text-dark"><?php echo $message['message']; ?></h6>
                   <p class="font-weight-light small-text">
-                    Just now
+                    <?php echo $message['date_added']; ?>
                   </p>
                 </div>
               </a>
+              <?php 
+                }
+              ?>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="mdi mdi-comment-text-outline mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium text-dark">Settings</h6>
-                  <p class="font-weight-light small-text">
-                    Private message
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="mdi mdi-email-outline mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium text-dark">New user registration</h6>
-                  <p class="font-weight-light small-text">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
             </div>
           </li>
           <li class="nav-item dropdown">

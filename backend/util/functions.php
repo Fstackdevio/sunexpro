@@ -364,7 +364,7 @@ class Auth extends Utility{
 		unset($_SESSION['timestamp']);
 		session_destroy();
 		session_unset();
-		$this->redirect('./../../UI/dashboard/page_user_login_1.php');
+		$this->redirect('./../../login.php');
 	}
 
 	public function activelogout() {
@@ -637,10 +637,10 @@ class Products extends Utility{
 
 	
 
-	public function getcount($constId, $catId){
+	public function getcount($userid, $catId){
 		try {
-			$stmt = $this->DBcon->prepare("SELECT * FROM vote WHERE contestant_id = :contestant_id AND category_id = :category_id");
-			$stmt->execute(array(':contestant_id' => $constId, ':category_id' => $catId));
+			$stmt = $this->DBcon->prepare("SELECT * FROM notifications WHERE userid = :userid");
+			$stmt->execute(array(':userid' => $userid));
 			$res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			return $stmt->rowCount();
 		} catch(PDOException $ex) {

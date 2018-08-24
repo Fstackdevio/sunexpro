@@ -60,7 +60,7 @@
             </a>
           </li>  
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="./../backend/operation/customerLogout.php">
               <i class="menu-icon icon-power"> </i>
               <span class="menu-title">Logout</span>
             </a>
