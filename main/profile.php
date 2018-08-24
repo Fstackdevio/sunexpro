@@ -113,6 +113,7 @@
                             <label for="country">Country</label>
                             <!-- <input id="country" class="form-control" name="country" type="text" value="<?php echo $userdetails['country']; ?>"> -->
                             <select name="countries" class="form-control" id="country" name="country">
+                                <option><?php echo $userdetails['country']; ?></option>
                                 <option value="United States">United States</option> 
                                 <option value="United Kingdom">United Kingdom</option> 
                                 <option value="Afghanistan">Afghanistan</option> 
