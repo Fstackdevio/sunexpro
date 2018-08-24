@@ -91,7 +91,7 @@
               <div class="dropdown-divider"></div>
             </div>
           </li>
-          <li class="nav-item dropdown">
+   <!--        <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle count-indicator" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
               <i class="mdi mdi-email-outline"></i>
             </a>
@@ -144,7 +144,7 @@
                 </div>
               </a>
             </div>
-          </li>
+          </li> -->
           <li class="nav-item dropdown color-setting d-none d-md-block">
             <a class="nav-link count-indicator" href="#">
               <i class="mdi mdi-invert-colors"></i>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 24, 2018 at 12:44 AM
+-- Generation Time: Aug 24, 2018 at 10:53 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -42,6 +42,8 @@ CREATE TABLE `customers` (
   `city` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
+  `gov_id` varchar(255) NOT NULL,
+  `POA` varchar(255) NOT NULL,
   `activationCode` varchar(255) NOT NULL,
   `referal_code` varchar(255) NOT NULL,
   `sponsor` varchar(255) NOT NULL,
@@ -53,10 +55,10 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`_id`, `username`, `fullname`, `gender`, `email`, `password`, `cleartext`, `contactNumber`, `country`, `state`, `city`, `phone`, `address`, `activationCode`, `referal_code`, `sponsor`, `activationStatus`, `dateRegistered`) VALUES
-(4, 'imman', 'Adeojo emmanuel', 'Male', 'emmanuel.adeojo@yahoo.com', '$2a$10$1aa375585814f5476dce0eRTsyKf0E084MUe3L1j2wOU9HU7SO.sm', 'magnitude', '08149848925', 'Nigeria', 'Abuja', 'Fct', '08149848925', 'apo zone a extention', '01292029', '', '', '1', '2018-05-05 09:43:02'),
-(10, '', '', '0', 'adeojo.emmanuel@iodevtech.com', '$2a$10$084fdd005455d308ecb84OpQtX2Kyl/phbDgvE5El.TPElQhh2vmS', 'mag', '', '', '', '', '', '', 'iRuQd8elwtsEry0Q1WiB', '49577472', '', '0', '2018-08-21 13:06:12'),
-(11, '', '', '0', 'emmanuel.adeAojo.ibk@gmail.com', '$2a$10$73d90835180843b3f4956un3/uIKJfV02I/yjMFxfnfDVKjZ1FIAq', 'mag', '', '', '', '', '', '', 'tyQmiaDUaQnwgEbKrVJv', '1232', '', '0', '2018-08-23 21:22:41');
+INSERT INTO `customers` (`_id`, `username`, `fullname`, `gender`, `email`, `password`, `cleartext`, `contactNumber`, `country`, `state`, `city`, `phone`, `address`, `gov_id`, `POA`, `activationCode`, `referal_code`, `sponsor`, `activationStatus`, `dateRegistered`) VALUES
+(4, 'imman', 'Adeojo emmanuel', 'Male', 'emmanuel.adeojo@yahoo.com', '$2a$10$3a1daea1c554c5eec6398uNBbpHHbYpg8VmDvBLZhAEeVekzybMJ.', 'mag', '08149848925', 'Nigeria', 'Abuja', 'Fct', '08149848925', 'apo zone a extention', './../../uploads/1535096910_MG_1685.jpg', './../../uploads/1535096910_MG_4829.jpg', '01292029', '', '', '1', '2018-05-05 09:43:02'),
+(10, '', '', '0', 'adeojo.emmanuel@iodevtech.com', '$2a$10$084fdd005455d308ecb84OpQtX2Kyl/phbDgvE5El.TPElQhh2vmS', 'mag', '', '', '', '', '', '', '', '', 'iRuQd8elwtsEry0Q1WiB', '49577472', '', '0', '2018-08-21 13:06:12'),
+(11, '', '', '0', 'emmanuel.adeAojo.ibk@gmail.com', '$2a$10$73d90835180843b3f4956un3/uIKJfV02I/yjMFxfnfDVKjZ1FIAq', 'mag', '', '', '', '', '', '', '', '', 'tyQmiaDUaQnwgEbKrVJv', '1232', '', '0', '2018-08-23 21:22:41');
 
 -- --------------------------------------------------------
 
@@ -69,6 +71,20 @@ CREATE TABLE `deposit_history` (
   `userid` int(255) NOT NULL,
   `amount` varchar(255) NOT NULL,
   `date_performed` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `id` int(255) NOT NULL,
+  `userid` int(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -159,6 +175,12 @@ ALTER TABLE `deposit_history`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `passrecovery`
 --
 ALTER TABLE `passrecovery`
@@ -190,6 +212,12 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `deposit_history`
 --
 ALTER TABLE `deposit_history`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 
 --
