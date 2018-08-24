@@ -50,7 +50,19 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-12">     
-            <h4 class="page-title mb-3">Upload Identification Document</h4>          
+            <h4 class="page-title mb-3">Upload Identification Document</h4>  
+            <?php
+                $auth = new Auth();
+                $auth->getSessions();
+                if(isset($_SESSION['message'])){
+            ?>
+            <div id="sessmsg" class="<?php echo $_SESSION['messagetype']; ?> alert-dismissible" style="text-align: center;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <?php echo $_SESSION['message']; ?>
+            </div>
+            <?php
+                }
+            ?>        
               <div class="container">
                 <div class="card">
                     <div class="card-body">
@@ -58,15 +70,15 @@
                         As part of SunexCoin affiliate program policy, it is required that all registered users upload a valid government issued ID and
                         a valid proof of residence (such as electricity bill, water bill, internet bill, lease or mortgage documents etc issued within the last 90 days) before their withdrawals can be processed
                     </h4>
-                    <form class="cmxform" id="change-password" method="get" action="#">
+                    <form class="cmxform" id="change-password" action="./../backend/operation/fileupload.php" method="POST" enctype="multipart/form-data">
                         <fieldset>
                         <div class="form-group mb-5">
                             <label for="valid-id">Upload your valid government issued ID</label>
-                            <input id="valid-id" name="valid-id" type="file" class="dropify" />
+                            <input id="valid-id" name="upload[]" type="file" class="dropify" />
                         </div>
                         <div class="form-group mb-4">
                             <label for="valid-id">Upload your recent proof of address</label>
-                            <input id="valid-id" name="valid-id" type="file" class="dropify" />
+                            <input id="valid-id" name="upload[]" type="file" class="dropify" />
                         </div>
                         <input class="btn btn-primary" type="submit" value="Upload Documents">
                         </fieldset>
@@ -110,6 +122,7 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="./js/dropify.js"></script>
+  <?php include './../backend/destroyalert.php'; ?>
   <!-- End custom js for this page-->
 </body>
 
