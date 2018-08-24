@@ -5,7 +5,7 @@
     session_start();
     if($Auth->logout()){
         $_SESSION['message'] = "Your Account Has Been logout";
-		$_SESSION['messagetype'] ="alert alert-success";
+		$_SESSION['messagetype'] ="alert alert-warning";
 		$utility->redirect('./../../main/profile.php');
     }
     exit;

@@ -14,9 +14,10 @@
 	  }
 	}
 
-	$field = array('referal_code', 'email',  'password', 'activationStatus', 'activationCode', 'cleartext');
+	$field = array('referal_code', 'fullname', 'email',  'password', 'activationStatus', 'activationCode', 'cleartext');
 	if(!$error) {
 		$referal = $utility->clean_input($_POST['referal_code']);
+		$fullname = $utility->clean_input($_POST['fullname']);
 		$email = $utility->clean_input($_POST['email']);
 		$pass = $utility->clean_input($_POST['password']);
 		$confirm =  $utility->clean_input($_POST['password_confirmation']);
@@ -25,9 +26,14 @@
 		if($pass == $confirm){
 			$password = passwordHash::hash($pass);
 			if($utility->validate_email($email)) {
-				$values = array('referal_code' => $referal,  'email' => $email, 'password' => $password,  'activationStatus' => $astat, 'activationCode' => $coderand, 'cleartext' => $pass);
+				$values = array('referal_code' => $referal, 'fullname' => $fullname,  'email' => $email, 'password' => $password,  'activationStatus' => $astat, 'activationCode' => $coderand, 'cleartext' => $pass);
 				$auth = new Auth();
 				$main = $auth->register('customers', $field, $values, $referal);
+				if($referal !== NULL){
+					$refields = array();
+					$refvalue = array();
+					$utility->insert('referals', $refields, $refvalue);
+				}
 				echo $main;
 			}else {
 				$_SESSION['message'] = "Wrong email format";
