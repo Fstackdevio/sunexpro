@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 21, 2018 at 02:16 PM
+-- Generation Time: Aug 24, 2018 at 12:44 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 5.6.32
 
@@ -32,13 +32,19 @@ CREATE TABLE `customers` (
   `_id` int(255) NOT NULL,
   `username` varchar(255) NOT NULL,
   `fullname` varchar(255) NOT NULL,
+  `gender` varchar(55) NOT NULL DEFAULT 'NOT SELECTED',
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `cleartext` varchar(255) NOT NULL,
   `contactNumber` varchar(15) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `state` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `activationCode` varchar(255) NOT NULL,
   `referal_code` varchar(255) NOT NULL,
+  `sponsor` varchar(255) NOT NULL,
   `activationStatus` varchar(2) NOT NULL,
   `dateRegistered` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -47,10 +53,10 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`_id`, `username`, `fullname`, `email`, `password`, `cleartext`, `contactNumber`, `address`, `activationCode`, `referal_code`, `activationStatus`, `dateRegistered`) VALUES
-(4, 'imman', 'Adeojo emmanuel', 'emmanuel.adeojo@yahoo.com', '$2a$10$1aa375585814f5476dce0eRTsyKf0E084MUe3L1j2wOU9HU7SO.sm', 'magnitude', '08149848925', '', '01292029', '', '1', '2018-05-05 09:43:02'),
-(9, 'abraham', 'abraham alex', 'adeojo.emmanuel@lmu.edu.ng', '$2a$10$e3b986198878f126000bdOrY.zaJcmzquG2CfJlW7XjC0q/lCn3Zi', 'magnitude', '08125442337', '', '6borJyjcPae7Evw7tn3q', '', '0', '2018-08-19 07:58:40'),
-(10, '', '', 'adeojo.emmanuel@iodevtech.com', '$2a$10$084fdd005455d308ecb84OpQtX2Kyl/phbDgvE5El.TPElQhh2vmS', 'mag', '', '', 'iRuQd8elwtsEry0Q1WiB', '49577472', '0', '2018-08-21 13:06:12');
+INSERT INTO `customers` (`_id`, `username`, `fullname`, `gender`, `email`, `password`, `cleartext`, `contactNumber`, `country`, `state`, `city`, `phone`, `address`, `activationCode`, `referal_code`, `sponsor`, `activationStatus`, `dateRegistered`) VALUES
+(4, 'imman', 'Adeojo emmanuel', 'Male', 'emmanuel.adeojo@yahoo.com', '$2a$10$1aa375585814f5476dce0eRTsyKf0E084MUe3L1j2wOU9HU7SO.sm', 'magnitude', '08149848925', 'Nigeria', 'Abuja', 'Fct', '08149848925', 'apo zone a extention', '01292029', '', '', '1', '2018-05-05 09:43:02'),
+(10, '', '', '0', 'adeojo.emmanuel@iodevtech.com', '$2a$10$084fdd005455d308ecb84OpQtX2Kyl/phbDgvE5El.TPElQhh2vmS', 'mag', '', '', '', '', '', '', 'iRuQd8elwtsEry0Q1WiB', '49577472', '', '0', '2018-08-21 13:06:12'),
+(11, '', '', '0', 'emmanuel.adeAojo.ibk@gmail.com', '$2a$10$73d90835180843b3f4956un3/uIKJfV02I/yjMFxfnfDVKjZ1FIAq', 'mag', '', '', '', '', '', '', 'tyQmiaDUaQnwgEbKrVJv', '1232', '', '0', '2018-08-23 21:22:41');
 
 -- --------------------------------------------------------
 
@@ -178,7 +184,7 @@ ALTER TABLE `wallet`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `deposit_history`

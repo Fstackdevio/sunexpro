@@ -25,7 +25,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Withdraw.php">
+            <a class="nav-link" href="withdraw">
               <i class="menu-icon icon-basket-loaded"> </i>
               <span class="menu-title">Withdraw</span>
             </a>
