@@ -434,14 +434,14 @@ class Auth extends Utility{
 	}
 		    
 	//register function
-	public function register($table, array $fields, array $values, $code) {
+	public function register($table, array $fields, array $values, $code, $coderand) {
 		//session_start();
 		require_once 'hashing.php';
 		$token = $this->random_char();
 		if($this->isExist($values['email'], 'customers') == NULL) {
 			// try {
 				$send_verify = new Mailing();
-				if($send_verify->mail_verification($values['email'], $token)){
+				if($send_verify->mail_verification($values['email'], $coderand)){
 					if($this->insert($table, $fields,  $values)){
 							$_SESSION['message'] = "Registered Successfully Please Check your Mail for Activation";
 							$_SESSION['messagetype'] ="alert alert-success";

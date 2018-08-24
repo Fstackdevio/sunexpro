@@ -28,7 +28,7 @@
 			if($utility->validate_email($email)) {
 				$values = array('referal_code' => $referal, 'fullname' => $fullname,  'email' => $email, 'password' => $password,  'activationStatus' => $astat, 'activationCode' => $coderand, 'cleartext' => $pass);
 				$auth = new Auth();
-				$main = $auth->register('customers', $field, $values, $referal);
+				$main = $auth->register('customers', $field, $values, $referal, $coderand);
 				// if($referal !== NULL){
 				// 	$refields = array();
 				// 	$refvalue = array();
