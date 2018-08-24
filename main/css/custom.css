@@ -22,3 +22,6 @@ a:hover{
     font-weight: 300;
     font-size: 3em;
 }
+.text-upper{
+    text-transform: capitalize !important;
+}

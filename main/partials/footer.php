@@ -7,3 +7,15 @@
       </span>
     </div>
   </footer>
+  <script src="./js/jquery.min.js"></script>
+  
+  <script>
+    function copyRefLink(){
+      var link = document.getElementById("ref-link");
+      link.select();
+      document.execCommand("copy");
+      // window.alert("Copied the text: " + link.value);
+      showSwal('ref-link', link.value);
+    }
+  </script>
+  <script src="./js/alerts.js"></script>

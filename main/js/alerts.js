@@ -1,5 +1,6 @@
 (function($) {
-  showSwal = function(type) {
+  showSwal = function(type, m) {
+    console.log('shows wal');
     'use strict';
     if (type === 'basic') {
       swal({
@@ -31,6 +32,19 @@
         icon: 'success',
         button: {
           text: "Continue",
+          value: true,
+          visible: true,
+          className: "btn btn-primary"
+        }
+      })
+
+    } else if (type === 'ref-link') {
+      swal({
+        title: 'Success!',
+        text: 'Your referral link [' + m + '] has been copied to your clipboard. Please share with your affiliates.',
+        icon: 'success',
+        button: {
+          text: "Ok!",
           value: true,
           visible: true,
           className: "btn btn-primary"
