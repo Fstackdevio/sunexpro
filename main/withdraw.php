@@ -14,11 +14,9 @@
   <link rel="stylesheet" href="vendors/css/vendor.bundle.addons.css">
   <!-- endinject -->
   <!-- plugin css for this page -->
-  <link rel="stylesheet" href="vendors/icheck/skins/all.css">
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/custom.css">s
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -33,8 +31,7 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          
-                  <div class="card" style="margin-left: auto; margin-right: auto; width: 80%;">
+          <div class="card" style="margin-left: auto; margin-right: auto; width: 80%;">
                     <div class="card-body">
                       <h4 class="card-title">Withdrawal form</h4>
                       
@@ -75,9 +72,6 @@
                       </form>
                     </div>
                   </div>
-               
-
-
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:../../partials/_footer.html -->
@@ -87,7 +81,7 @@
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
-  </div>
+
   <!-- container-scroller -->
   <!-- plugins:js -->
   <script src="../../vendors/js/vendor.bundle.base.js"></script>

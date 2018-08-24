@@ -6,7 +6,7 @@
             <p class="text-center font-weight-medium text-upper"><?php echo $userdetails['fullname']; ?></p>
             <p class="text-center font-weight-light">
               Referral Code: <?php echo $userdetails['referal_code'] ?>
-              <input type="hidden" value="https://affiliate.sunxcoin.com/register/<?php echo $userdetails['referal_code'] ?>" id="ref-link">
+              <input type="text" value="https://affiliate.sunxcoin.com/register/<?php echo $userdetails['referal_code'] ?>" id="ref-link" class="faraway" aria-hidden="true">
               <button type="button" class="btn btn-icons btn-rounded btn-inverse-primary ml-2" onclick="copyRefLink()"><i class="fa fa-paste"></i></button>
             </p>
           </li>
@@ -58,7 +58,14 @@
               <i class="menu-icon icon-support"> </i>
               <span class="menu-title">Support Center</span>
             </a>
-          </li>         
+          </li>  
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="menu-icon icon-power"> </i>
+              <span class="menu-title">Logout</span>
+            </a>
+          </li>  
+          <!-- <button class="btn btn-default submit-btn btn-block" style="margin-left: auto; margin-right: auto; width: 50%;">Logout</button>        -->
         </ul>
       </nav>
       <style>
@@ -67,6 +74,13 @@
         }
         .swal-text{
           text-align: center;
+        }
+        .navbar.default-layout{
+          background: #F9FBFD;
+        }
+        .faraway{
+          position: absolute;
+          left: -9000px;
         }
       </style>
       

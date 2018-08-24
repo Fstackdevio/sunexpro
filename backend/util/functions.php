@@ -469,6 +469,32 @@ class Auth extends Utility{
 		}	
 	}
 
+	public function logintest($id, $password, $table) {
+		try {
+			$stmt = $this->DBcon->prepare("SELECT _id, email,password FROM $table WHERE (_id=:id)"); 
+		    $stmt->bindParam(':id', $id);
+			$stmt->execute();
+			$res = $stmt->fetch(PDO::FETCH_ASSOC);
+	    	if ( $stmt->rowCount() > 0 ) {
+	    		if(passwordHash::check_password($res['password'], $password)){
+	    			if($res['activationStatus'] != "0"){
+	    				return "success";
+			    	}else{
+			    		return "Account Not Activated";
+				    }
+	    		}else{
+	    			//wrong password
+	    			return "Wrong Password";
+		    	} 
+		    }else {
+	    		//user does not exist
+    			return "Invalid User";
+	    	}
+		}catch (PDOException $ex) {
+			return "PDO did not work";
+		}
+	}
+
 	// login function
 	public function login($email, $password, $table) {
 		try {

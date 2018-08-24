@@ -1,3 +1,22 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  require_once ('./../backend/util/functions.php');
+  $utility = new Utility();
+  $auth = new Auth();
+  $inactive = 12000;
+  $session_life = time() - $_SESSION['timestamp'];
+  if (!isset($_SESSION['user_id'])){  
+    header("Location: ./../login.php");  
+  } else {
+    $_SESSION['last_activity'] = time();
+  }
+  $usid = $_SESSION['user_id'];
+  $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
+  $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,24 +50,36 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="col-12">     
-            <h4 class="page-title mb-3">Change your password</h4>          
+            <h4 class="page-title mb-3">Change your password</h4> 
+            <?php
+                $auth = new Auth();
+                $auth->getSessions();
+                if(isset($_SESSION['message'])){
+            ?>
+            <div id="sessmsg" class="<?php echo $_SESSION['messagetype']; ?> alert-dismissible" style="text-align: center;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <?php echo $_SESSION['message']; ?>
+            </div>
+            <?php
+                }
+            ?>            
               <div class="container">
                 <div class="card">
                     <div class="card-body">
                     <!-- <h4 class="card-title mb-3">Edit your profile information</h4> -->
-                    <form class="cmxform" id="change-password" method="get" action="#">
+                    <form class="cmxform" id="change-password" method="POST" action="./../backend/operation/changepass.php">
                         <fieldset>
                         <div class="form-group">
                             <label for="password">Current Password</label>
-                            <input id="password" class="form-control" name="old-password" type="password" value="a simple pass">
+                            <input id="password" class="form-control" name="oldpass" type="password" placeholder="your Old Password">
                         </div>
                         <div class="form-group">
                             <label for="new-password">New Password</label>
-                            <input id="new-password" class="form-control" name="new-password" type="password" placeholder="Enter your new password">
+                            <input id="new-password" class="form-control" name="newpass" type="password" placeholder="Enter your new password">
                         </div>
                         <div class="form-group">
                             <label for="confirm-password">Confirm password</label>
-                            <input id="confirm-password" class="form-control" name="confirm-password" type="password" placeholder="Re-enter your new password">
+                            <input id="confirm-password" class="form-control" name="renewpass" type="password" placeholder="Re-enter your new password">
                         </div>
                         <input class="btn btn-primary" type="submit" value="Update Password">
                         </fieldset>
@@ -89,6 +120,7 @@
   <script src="./js/misc.js"></script>
   <script src="./js/settings.js"></script>
   <script src="./js/todolist.js"></script>
+  <?php include './../backend/destroyalert.php'; ?>
   <!-- endinject -->
   <!-- Custom js for this page-->
 
