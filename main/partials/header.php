@@ -5,7 +5,8 @@
           <img src="images/logo1.jpg" alt="logo"  />
         </a>
         <a class="navbar-brand brand-logo-mini" href="index.php">
-          <img src="images/logo-mini.svg" alt="logo" />
+          <!-- <img src="images/logo-mini.svg" alt="logo" /> -->
+          <img src="./images/logo2.png" alt="logo" style="width: 40px; height: auto;" />
         </a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
