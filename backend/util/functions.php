@@ -692,7 +692,7 @@ class Mailing extends Utility{
 			$this->mail->Password = './configure.';                           // SMTP password
 			$this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 			$this->mail->Port = 587;
-			$this->mail->setFrom('3plecoin.com', '3plecoin  - Verification Email');
+			$this->mail->setFrom('sunx.com', 'SunX  - Verification Email');
 			
 			$this->mail->addAddress($email, ''); 
        // Add attachments
@@ -701,8 +701,8 @@ class Mailing extends Utility{
 
 			$this->mail->Subject = '3plecoin Verification Email';
 			$this->mail->From = "adeojo.emmanuel@lmu.edu.ng";
-			$this->mail->FromName = "3plecoin";
-			$this->mail->Subject = "3plecoin  - Verification Email";
+			$this->mail->FromName = "SunX";
+			$this->mail->Subject = "SunX  - Verification Email";
 			$msg = '<html>
 					  <head>
 					    <title>Activation Email</title>
@@ -849,11 +849,11 @@ class Mailing extends Utility{
 			$this->mail->Body = $msg;
 			$this->mail->IsHTML(true);
 
-			if(!$this->mail->send()) {
-			    return false;
-			    // return 'Mailer error: ' . $this->mail->ErrorInfo;
-			} else {
+			if($this->mail->send()) {
 			    return true;
+			} else {
+			    // return false;
+			    return 'Mailer error: ' . $this->mail->ErrorInfo;
 			}
 
 	}
