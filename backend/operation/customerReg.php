@@ -29,11 +29,11 @@
 				$values = array('referal_code' => $referal, 'fullname' => $fullname,  'email' => $email, 'password' => $password,  'activationStatus' => $astat, 'activationCode' => $coderand, 'cleartext' => $pass);
 				$auth = new Auth();
 				$main = $auth->register('customers', $field, $values, $referal);
-				if($referal !== NULL){
-					$refields = array();
-					$refvalue = array();
-					$utility->insert('referals', $refields, $refvalue);
-				}
+				// if($referal !== NULL){
+				// 	$refields = array();
+				// 	$refvalue = array();
+				// 	$utility->insert('referals', $refields, $refvalue);
+				// }
 				echo $main;
 			}else {
 				$_SESSION['message'] = "Wrong email format";

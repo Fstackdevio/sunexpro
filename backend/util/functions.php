@@ -692,17 +692,17 @@ class Mailing extends Utility{
 			$this->mail->Password = './configure.';                           // SMTP password
 			$this->mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 			$this->mail->Port = 587;
-			$this->mail->setFrom('class.com', 'class  - Verification Email');
+			$this->mail->setFrom('3plecoin.com', '3plecoin  - Verification Email');
 			
 			$this->mail->addAddress($email, ''); 
        // Add attachments
 			    // Optional name
 			$this->mail->isHTML(true);                                  // Set email format to HTML
 
-			$this->mail->Subject = 'SUNX Verification Email';
-			$this->mail->From = "SUNXPRO";
-			$this->mail->FromName = "SUNX";
-			$this->mail->Subject = "SUNX  - Verification Email";
+			$this->mail->Subject = '3plecoin Verification Email';
+			$this->mail->From = "adeojo.emmanuel@lmu.edu.ng";
+			$this->mail->FromName = "3plecoin";
+			$this->mail->Subject = "3plecoin  - Verification Email";
 			$msg = '<html>
 					  <head>
 					    <title>Activation Email</title>
