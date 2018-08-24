@@ -166,18 +166,7 @@
   <script src="./js/todolist.js"></script>
   <!-- endinject -->
   <!-- Custom js for this page-->
-<?php 
-    function destroysess(){
-        unset($_SESSION['message']);
-        unset($_SESSION['messagetype']);
-    }
-  ?>
-  <script>
-        setTimeout(function(){
-          $('#sessmsg').remove();
-        }, 5000);
-        var runQuery = "<?php destroysess(); ?>"; 
-  </script>
+  <?php include './../backend/destroyalert.php'; ?>
   <!-- End custom js for this page-->
 </body>
 
