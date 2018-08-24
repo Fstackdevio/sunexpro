@@ -445,7 +445,7 @@ class Auth extends Utility{
 					if($this->insert($table, $fields,  $values)){
 							$_SESSION['message'] = "Registered Successfully Please Check your Mail for Activation";
 							$_SESSION['messagetype'] ="alert alert-success";
-							$this->redirect('./../../login.php?referal='.$code);
+							$this->redirect('./../../register.php?referal='.$code);
 					}else{
 						$_SESSION['message'] = "Error inserting";
 						// $_SESSION['message'] = $send_verify->mail_verification($values['email'], $token);
