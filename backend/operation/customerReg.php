@@ -16,39 +16,47 @@
 
 	$field = array('referal_code', 'fullname', 'email',  'password', 'activationStatus', 'activationCode', 'cleartext');
 	if(!$error) {
-		$referal = $utility->clean_input($_POST['referal_code']);
+		$referee = isset($_POST['referal_code']) ? $_POST['referal_code'] : '';
+		// $referee = $utility->clean_input($_POST['referal_code']);
 		$fullname = $utility->clean_input($_POST['fullname']);
 		$email = $utility->clean_input($_POST['email']);
 		$pass = $utility->clean_input($_POST['password']);
 		$confirm =  $utility->clean_input($_POST['password_confirmation']);
 		$coderand = $auth->random_char();
+		$referal = $auth->random_char_digit();
 		$astat = 0;
 		if($pass == $confirm){
 			$password = passwordHash::hash($pass);
 			if($utility->validate_email($email)) {
 				$values = array('referal_code' => $referal, 'fullname' => $fullname,  'email' => $email, 'password' => $password,  'activationStatus' => $astat, 'activationCode' => $coderand, 'cleartext' => $pass);
 				$auth = new Auth();
-				$main = $auth->register('customers', $field, $values, $referal, $coderand);
-				// if($referal !== NULL){
-				// 	$refields = array();
-				// 	$refvalue = array();
-				// 	$utility->insert('referals', $refields, $refvalue);
-				// }
+				$main = $auth->register('customers', $field, $values, $referal, $coderand, $referee);
+				if($referee !== ''){
+					$refields = array($referal, $referee);
+					$refvalue = array('referal', 'referee');
+					if($auth->insert('affilation', $refvalue, $refields)){
+
+					}else{
+						$_SESSION['message'] = "error inserting";
+						$_SESSION['messagetype'] ="alert alert-danger";
+						$utility->redirect('./../../register.php?referal='.$referee);
+					}
+				}
 				echo $main;
 			}else {
 				$_SESSION['message'] = "Wrong email format";
 				$_SESSION['messagetype'] ="alert alert-danger";
-				$utility->redirect('./../../register.php?referal='.$referal);
+				$utility->redirect('./../../register.php?referal='.$referee);
 			}
 		}else{
 			$_SESSION['message'] = "password not match";
 			$_SESSION['messagetype'] ="alert alert-danger";
-			$utility->redirect('./../../register.php?referal='.$referal);
+			$utility->redirect('./../../register.php?referal='.$referee);
 		}
 	}else{
 		$_SESSION['message'] = "input error";
 		$_SESSION['messagetype'] ="alert alert-danger";
-		$utility->redirect('./../../register.php?referal='.$referal);
+		$utility->redirect('./../../register.php?referal='.$referee);
 	}
 
 ?>

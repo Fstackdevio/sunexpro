@@ -376,6 +376,18 @@ class Auth extends Utility{
 		session_unset();
 	}
 
+	public function random_char_digit(){
+		// where char stands for the string u want to randomize
+		$char = '1234567890';
+		$char_length = 20;
+		$cl = strlen($char);
+		$randomize = '';
+		for($i = 0; $i < $char_length; $i++ ){
+			$randomize .= $char[rand(0, $cl - 1)]; 
+		}
+		return $randomize;
+	}
+
 	public function random_char(){
 		// where char stands for the string u want to randomize
 		$char = 'abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -434,7 +446,7 @@ class Auth extends Utility{
 	}
 		    
 	//register function
-	public function register($table, array $fields, array $values, $code, $coderand) {
+	public function register($table, array $fields, array $values, $code, $coderand, $referee) {
 		//session_start();
 		require_once 'hashing.php';
 		$token = $this->random_char();
@@ -445,17 +457,17 @@ class Auth extends Utility{
 					if($this->insert($table, $fields,  $values)){
 							$_SESSION['message'] = "Registered Successfully Please Check your Mail for Activation";
 							$_SESSION['messagetype'] ="alert alert-success";
-							$this->redirect('./../../register.php?referal='.$code);
+							$this->redirect('./../../register.php?referal='.$referee);
 					}else{
 						$_SESSION['message'] = "Error inserting";
 						// $_SESSION['message'] = $send_verify->mail_verification($values['email'], $token);
 						$_SESSION['messagetype'] ="alert alert-danger";
-						$this->redirect('./../../register.php?referal='.$code);
+						$this->redirect('./../../register.php?referal='.$referee);
 					}
 				}else{
 					$_SESSION['message'] = "mailing error";
 					$_SESSION['messagetype'] ="alert alert-danger";
-					$this->redirect('./../../register.php?referal='.$code);
+					$this->redirect('./../../register.php?referal='.$referee);
 				}
 			// } catch(PDOException $ex) {
 			// 		$_SESSION['message'] = "Registration Failed";
@@ -465,7 +477,7 @@ class Auth extends Utility{
 		}else{
 			$_SESSION['message'] = "User Already Registered";
 			$_SESSION['messagetype'] ="alert alert-danger";
-			$this->redirect('./../../register.php?referal='.$code);
+			$this->redirect('./../../register.php?referal='.$referee);
 		}	
 	}
 
