@@ -1,3 +1,23 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
+  require_once ('./../backend/util/functions.php');
+  $utility = new Utility();
+  $auth = new Auth();
+  $inactive = 12000;
+  $session_life = time() - $_SESSION['timestamp'];
+  if (!isset($_SESSION['user_id'])){  
+    header("Location: ./../login.php");  
+  } else {
+    $_SESSION['last_activity'] = time();
+  }
+  $usid = $_SESSION['user_id'];
+  $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
+  $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+  $rfcode = $userdetails['referal_code'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +52,18 @@
       <div class="main-panel">
         <div class="content-wrapper">
         <h4 class="page-title mb-4">Support Center</h4>
+            <?php
+                $auth = new Auth();
+                $auth->getSessions();
+                if(isset($_SESSION['message'])){
+            ?>
+            <div id="sessmsg" class="<?php echo $_SESSION['messagetype']; ?> alert-dismissible" style="text-align: center;">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <?php echo $_SESSION['message']; ?>
+            </div>
+            <?php
+                }
+            ?>    
           <div class="row">
             <div class="col-12 mb-5">
               <div class="card">
@@ -39,12 +71,13 @@
                   <h4 class="card-title">Contact Form</h4>
                   <p class="card-description">Please fill in the form below and send us a message about your questions.</p>
                   <br>
-                  <div class="row">
+                  <form action="./../backend/operation/Support.php" method="POST">
+                    <div class="row">
                       <div class="col-md-6">
                         <div class="form-group row">
                           <!-- <label class="col-sm-3 col-form-label">Full name</label> -->
                           <div class="col-sm-12">
-                            <input type="text" class="form-control form-control-lg" placeholder="Full name" />
+                            <input type="text" class="form-control form-control-lg" name="fullname" placeholder="Full name" />
                           </div>
                         </div>
                       </div>
@@ -52,7 +85,7 @@
                         <div class="form-group row">
                           <!-- <label class="col-sm-3 col-form-label">Email</label> -->
                           <div class="col-sm-12">
-                            <input type="text" class="form-control form-control-lg" placeholder="Subject" />
+                            <input type="text" class="form-control form-control-lg" name="subject" placeholder="Subject" />
                           </div>
                         </div>
                       </div>
@@ -62,20 +95,21 @@
                         <div class="form-group row">
                           <!-- <label class="col-sm-3 col-form-label">Email</label> -->
                           <div class="col-sm-12">
-                            <input type="text" class="form-control form-control-lg" placeholder="Email" />
+                            <input type="text" class="form-control form-control-lg" name="email" placeholder="Email" />
                           </div>
                         </div>
                       </div>
                       <div class="col-md-6">
                         <div class="form-group row">
                           <div class="col-sm-12">
-                            <input type="text" class="form-control form-control-lg" placeholder="Phone" />
+                            <input type="text" class="form-control form-control-lg" name="phone" placeholder="Phone" />
                           </div>
                         </div>
                       </div>
                     </div>
-                  <textarea id="simpleMde"></textarea>
+                  <textarea id="simpleMde" name="message"></textarea>
                   <button type="button" class="btn btn-primary btn-fw btn-lg">Send</button>
+                </form>
                 </div>
               </div>
             </div>

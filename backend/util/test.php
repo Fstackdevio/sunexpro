@@ -1,27 +1,47 @@
 <?php 
 	session_start();
 	require('functions.php');
-	$Utility = new Utility();
+	$utility = new Utility();
 	$Mailing = new Mailing();
 	$auth = new Auth();
-	// $mail = $Mailing->mail_verification('adeojo.emmanuel@lmu.edu.ng', '123456789');
-	// echo $mail;
-	// // if($mail == true){
-	// // 	echo "mail working";
-	// // }else{
-	// // 	echo $mail;
-	// // }
-	// // $param = "emmanuel.adeojo@yahoo.comm";
-	// // $sql = "SELECT * FROM customers WHERE email = :email";
-	// // $action = $Utility->exists_by_id($param);
-	// // echo $action;
-	$referal = 'eakjhdjhd';
-	$referee = 'ejhdhgdh';
-	$refields = array($referal, $referee);
-	$refvalue = array('referal', 'referee');
-	if($auth->insert('affilation', $refvalue, $refields)){
-		echo "successully registerd";
-	}else{
-		echo "error registering";
+	$unitTest = $utility->getref('1231');
+	$rfcode = '1231';
+	
+
+	$firstgen = $unitTest[0];
+	$secondgen = $unitTest[1];
+	$thirdgen = $unitTest[2];
+	$forthgen = $unitTest[3];
+	$amount_of_dr = count($firstgen);
+	$amount_of_idr = count($secondgen) + count($thirdgen) + count($forthgen);
+
+	$cash1 = array();
+	$cash2 = array();
+	$cash3 = array();
+	
+	foreach ($secondgen as $secondgenid) {
+		$dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+	    $amount1 = $dl['subamount'];
+	    array_push($cash1, $amount1);
 	}
 
+	foreach ($thirdgen as $thirdgenid) {
+		$dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+	    $amount2 = $dl['subamount'];
+	    array_push($cash2, $amount2);
+	}
+
+	foreach ($forthgen as $forthgenid) {
+		$dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+	    $amount3 = $dl['subamount'];
+	    array_push($cash3, $amount3);
+	}
+
+	$sumcash1 = array_sum($cash1);
+	$sumcash2 = array_sum($cash2);
+	$sumcash3 = array_sum($cash3);
+
+	$total_idr = $sumcash1 + $sumcash2 + $sumcash3;
+
+	print_r($total_idr);
+	

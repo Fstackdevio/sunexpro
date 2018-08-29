@@ -12,9 +12,71 @@
   } else {
     $_SESSION['last_activity'] = time();
   }
+
   $usid = $_SESSION['user_id'];
   $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
-    $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+  $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+  $rfcode = $userdetails['referal_code'];
+
+  $unitTest = $utility->getref($rfcode);
+  $firstgen = $unitTest[0];
+  $secondgen = $unitTest[1];
+  $thirdgen = $unitTest[2];
+  $forthgen = $unitTest[3];
+  $amount_of_dr = count($firstgen);
+  $amount_of_idr = count($secondgen) + count($thirdgen) + count($forthgen);
+  
+  $dramount = array();
+
+  $dr = $utility->easyquery("SELECT * FROM affilation WHERE referee = '$rfcode'");
+  foreach ($dr as $idr) {
+    $param = $idr['referal'];
+    $dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+    $amount = $dl['subamount'];
+    array_push($dramount, $amount);
+  }
+
+  $realdirectref = array_sum($dramount);
+
+  $cash1 = array();
+  $cash2 = array();
+  $cash3 = array();
+  
+  foreach ($secondgen as $secondgenid) {
+    $dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+      $amount1 = $dl['subamount'];
+      array_push($cash1, $amount1);
+  }
+
+  foreach ($thirdgen as $thirdgenid) {
+    $dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+      $amount2 = $dl['subamount'];
+      array_push($cash2, $amount2);
+  }
+
+  foreach ($forthgen as $forthgenid) {
+    $dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+      $amount3 = $dl['subamount'];
+      array_push($cash3, $amount3);
+  }
+
+  $sumcash1 = array_sum($cash1);
+  $sumcash2 = array_sum($cash2);
+  $sumcash3 = array_sum($cash3);
+
+  $total_idr = $sumcash1 + $sumcash2 + $sumcash3;
+
+  $mytransaction = array();
+  $gettransactions = $utility->easyquery("SELECT * FROM withdrawal_request WHERE userid = '$rfcode'");
+  foreach ($gettransactions as $trasaction) {
+    $param = $trasaction['amount'];
+    if($trasaction['approve'] == 1){
+      array_push($mytransaction, $param);
+    }
+  }
+  $totalwithdraw = array_sum($mytransaction);
+
+  $levelcal = $utility->getting_level($realdirectref + $total_idr);
 
 ?>
 <!DOCTYPE html>
@@ -55,7 +117,7 @@
               <div class="d-flex align-items-center">
                 <div class="wrapper mr-4 d-none d-sm-block">
                   <p class="mb-0">Account Balance: 
-                    <b class="mb-0 ml-2">$7,223.3</b>
+                    <b class="mb-0 ml-2"><?php echo "$" . $userdetails['acc_bal']; ?></b>
                   </p>
                 </div>
               </div>
@@ -69,7 +131,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="d-inline-block pt-3">
                       <div class="d-flex">
-                        <h2 class="mb-0">$10,200</h2>
+                        <h2 class="mb-0"><?php echo "$". $realdirectref; ?></h2>
                       </div>
                       <small class="text-gray">earned from your direct referrals</small>
                     </div>
@@ -89,7 +151,7 @@
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="d-inline-block pt-3">
                       <div class="d-flex">
-                        <h2 class="mb-0">$2,256</h2>
+                        <h2 class="mb-0"><?php echo "$" . $total_idr; ?></h2>
                       </div>
                       <small class="text-gray">earned from your indirect referrals</small>
                     </div>
@@ -110,7 +172,7 @@
                   <div class="d-flex flex-row align-items-top">
                     <i class="icon icon-basket-loaded text-primary icon-md"></i>
                     <div class="ml-3">
-                      <h3 class="text-primary">$5,232.47</h3>
+                      <h3 class="text-primary"><?php echo "$". $totalwithdraw; ?> </h3>
                       <p class="mt-2 text-muted card-text">Total amount withdrawn</p>
                     </div>
                   </div>
@@ -123,7 +185,7 @@
                   <div class="d-flex flex-row align-items-top">
                     <i class="icon icon-wallet text-success icon-md"></i>
                     <div class="ml-3">
-                      <h3 class="text-success">$12,456</h3>
+                      <h3 class="text-success"><?php echo "$". $realdirectref + $total_idr; ?></h3>
                       <p class="mt-2 text-muted card-text">Total amount earned</p>
                     </div>
                   </div>
@@ -136,7 +198,7 @@
                   <div class="d-flex flex-row align-items-top">
                     <i class="icon icon-star text-warning icon-md"></i>
                     <div class="ml-3">
-                      <h3 class="text-warning">Level 3</h3>
+                      <h3 class="text-warning">Level <?php echo $levelcal; ?></h3>
                       <p class="mt-2 text-muted card-text">Your leadership rank</p>
                     </div>
                   </div>

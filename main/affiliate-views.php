@@ -14,8 +14,8 @@
   }
   $usid = $_SESSION['user_id'];
   $userdetails = $utility->getone("SELECT * FROM customers WHERE _id = '$usid'");
-    $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
-
+  $walletdetails = $utility->getone("SELECT * FROM wallet WHERE userid = '$usid'");
+  $rfcode = $userdetails['referal_code'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,54 +76,94 @@
                             </tr>
                           </thead>
                           <tbody>
+
+                          <?php 
+                            $number = 0;
+                            $dr = $utility->easyquery("SELECT * FROM affilation WHERE referee = '$rfcode'");
+                            foreach ($dr as $idr) {
+                              $param = $idr['referal'];
+                              $dl  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$param'");
+                              $earning = ($dl['subamount'] / 100) * 10;
+                          ?>
+                            <tr>
+                              <td><?php echo $number++; ?></td>
+                              <td><?php echo $dl['fullname']; ?></td>
+                              <td>Direct</td>
+                              <td><?php echo $dl['dateRegistered']; ?></td>
+                              <td><?php echo $dl['subtybe']; ?></td>
+                              <td><?php echo "$" . $dl['subamount']; ?> </td>
+                              <td><?php echo "$" . $earning; ?></td>
+                            </tr>
+                          <?php
+                            }
+                            $unitTest = $utility->getref($rfcode);
+                            $param = $unitTest[0];
+                            foreach ($param as $iparam) {
+                              $drop  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$iparam'");
+                              $earning_firstgen = ($drop['subamount'] / 100) * 10;
+                          ?>
                             <tr>
                               <td>1</td>
-                              <td>Edinburgh</td>
-                              <td>Direct</td>
-                              <td>21/08/2018</td>
-                              <td>Agent</td>
-                              <td>$55</td>
-                              <td>$5.5</td>
+                              <td><?php echo $drop['fullname']; ?></td>
+                              <td>Indirect</td>
+                              <td><?php echo $drop['dateRegistered']; ?></td>
+                              <td><?php echo $drop['subtybe']; ?></td>
+                              <td><?php echo "$" . $drop['subamount']; ?> </td>
+                              <td><?php echo "$" . $earning_firstgen; ?></td>
                             </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>Doe</td>
-                              <td>Indirect1</td>
-                              <td>21/08/2018</td>
-                              <td>Start</td>
-                              <td>$110</td>
-                              <td>$3.3</td>
+                          <?php 
+                            }
+                            $param = $unitTest[1];
+                            foreach ($param as $iparam) {
+                              $drop  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$iparam'");
+                              $earning_firstgen = ($drop['subamount'] / 100) * 10;
+                          ?>
+                          <tr>
+                              <td>1</td>
+                              <td><?php echo $drop['fullname']; ?></td>
+                              <td>Indirect</td>
+                              <td><?php echo $drop['dateRegistered']; ?></td>
+                              <td><?php echo $drop['subtybe']; ?></td>
+                              <td><?php echo "$" . $drop['subamount']; ?> </td>
+                              <td><?php echo "$" . $earning_firstgen; ?></td>
                             </tr>
-                            <tr>
-                              <td>3</td>
-                              <td>Sam</td>
-                              <td>Indirect2</td>
-                              <td>21/08/2018</td>
-                              <td>Platinum</td>
-                              <td>$5500</td>
-                              <td>$110</td>
+                          <?php 
+                            }
+                            $param = $unitTest[2];
+                            foreach ($param as $iparam) {
+                              $drop  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$iparam'");
+                              $earning_firstgen = ($drop['subamount'] / 100) * 10;
+                          ?>
+                          <tr>
+                              <td>1</td>
+                              <td><?php echo $drop['fullname']; ?></td>
+                              <td>Indirect</td>
+                              <td><?php echo $drop['dateRegistered']; ?></td>
+                              <td><?php echo $drop['subtybe']; ?></td>
+                              <td><?php echo "$" . $drop['subamount']; ?> </td>
+                              <td><?php echo "$" . $earning_firstgen; ?></td>
                             </tr>
-                            <tr>
-                              <td>4</td>
-                              <td>Joe</td>
-                              <td>Indirect3</td>
-                              <td>21/08/2018</td>
-                              <td>Ruby</td>
-                              <td>$1100</td>
-                              <td>$11</td>
+                          <?php 
+                            }
+                            $param = $unitTest[3];
+                            foreach ($param as $iparam) {
+                              $drop  = $utility->getOneRecord("SELECT * FROM customers WHERE referal_code = '$iparam'");
+                              $earning_firstgen = ($drop['subamount'] / 100) * 10;
+                          ?>
+                           <tr>
+                              <td>1</td>
+                              <td><?php echo $drop['fullname']; ?></td>
+                              <td>Indirect</td>
+                              <td><?php echo $drop['dateRegistered']; ?></td>
+                              <td><?php echo $drop['subtybe']; ?></td>
+                              <td><?php echo "$" . $drop['subamount']; ?> </td>
+                              <td><?php echo "$" . $earning_firstgen; ?></td>
                             </tr>
-                            <tr>
-                              <td>5</td>
-                              <td>Edward</td>
-                              <td>Indirect2</td>
-                              <td>21/08/2018</td>
-                              <td>$550</td>
-                              <td>$55</td>
-                              <td>$16.5</td>
-                            </tr>
-                            
-                            
-                          </tbody>
+                          <?php 
+                            }
+                          ?>
+
+                         </tbody>
                         </table>
                       </div>
                     </div>

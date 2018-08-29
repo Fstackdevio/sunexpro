@@ -5,8 +5,8 @@
             <img src="images/favicon.png" alt="profile image">
             <p class="text-center font-weight-medium text-upper"><?php echo $userdetails['fullname']; ?></p>
             <p class="text-center font-weight-light">
-              Referral Code: <?php echo $userdetails['referal_code'] ?>
-              <input type="text" value="https://affiliate.sunxcoin.com/register/<?php echo $userdetails['referal_code'] ?>" id="ref-link" class="faraway" aria-hidden="true">
+              Referral Code: <?php echo "https://affiliate.sunxcoin.com"; ?>
+              <input type="text" value="https://affiliate.sunxcoin.com/register.php?referal=<?php echo $userdetails['referal_code'] ?>" id="ref-link" class="faraway" aria-hidden="true">
               <button type="button" class="btn btn-icons btn-rounded btn-inverse-primary ml-2" onclick="copyRefLink()"><i class="fa fa-paste"></i></button>
             </p>
           </li>

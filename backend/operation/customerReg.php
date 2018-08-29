@@ -31,18 +31,19 @@
 				$values = array('referal_code' => $referal, 'fullname' => $fullname,  'email' => $email, 'password' => $password,  'activationStatus' => $astat, 'activationCode' => $coderand, 'cleartext' => $pass);
 				$auth = new Auth();
 				$main = $auth->register('customers', $field, $values, $referal, $coderand, $referee);
-				if($referee !== ''){
-					$refields = array($referal, $referee);
-					$refvalue = array('referal', 'referee');
-					if($auth->insert('affilation', $refvalue, $refields)){
+				
+				// affilate register  algo
+				$refields = array($referal, $referee);
+				$refvalue = array('referal', 'referee');
+				if($auth->insert('affilation', $refvalue, $refields)){
 
-					}else{
-						$_SESSION['message'] = "error inserting";
-						$_SESSION['messagetype'] ="alert alert-danger";
-						$utility->redirect('./../../register.php?referal='.$referee);
-					}
+				}else{
+					$_SESSION['message'] = "error inserting";
+					$_SESSION['messagetype'] ="alert alert-danger";
+					$utility->redirect('./../../register.php?referal='.$referee);
 				}
 				echo $main;
+				// affilate register stop
 			}else {
 				$_SESSION['message'] = "Wrong email format";
 				$_SESSION['messagetype'] ="alert alert-danger";

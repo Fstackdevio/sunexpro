@@ -17,6 +17,8 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom.css">
+
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -34,34 +36,33 @@
           <div class="card" style="margin-left: auto; margin-right: auto; width: 80%;">
                     <div class="card-body">
                       <h4 class="card-title">Withdrawal form</h4>
-                      
-                      <form class="forms-sample">
-                       <div class="form-group row">
-                         
+                      <form class="forms-sample" method="POST" action="./../backend/operation/Withdrawal.php">
+                        <div class="form-group row">
                           <div class="col-sm-6">
-                            <div class="form-radio">
+                            <!-- <div class="form-radio"> -->
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="Bitcoinwallet" id="Bitcoin" value="" checked>Bitcoin
-                            </div>
+                                <input type="radio" class="form-check-input" name="currency" id="Bitcoin" value="btc" checked>Bitcoin
+                              </label>
+                            <!-- </div> -->
                           </div>
                           <div class="col-sm-6">
-                            <div class="form-radio">
+                            <!-- <div class="form-radio"> -->
                               <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="Etherumwallet" id="Etherum" value="option2">Etherum
+                                <input type="radio" class="form-check-input" name="currency" id="Etherum" value="eth">Etherum
                               </label>
-                            </div>
+                            <!-- </div> -->
                           </div>
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Wallet address</label>
-                          <input type="email" class="form-control" id="Walletid" placeholder="Enter Walletid">
+                          <input type="email" class="form-control" id="Walletid" placeholder="Enter Walletid" name="wallet_Address">
                         </div>
                         <div class="form-group">
                         <div class="input-group">
                           <div class="input-group-prepend bg-primary border-primary">
                             <span class="input-group-text bg-transparent text-white">$</span>
                           </div>
-                          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                          <input type="text" class="form-control" name="amount" aria-label="Amount (to the nearest dollar)">
                           <div class="input-group-append bg-primary border-primary">
                             <span class="input-group-text bg-transparent text-white">.00</span>
                           </div>

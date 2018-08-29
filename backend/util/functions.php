@@ -18,6 +18,45 @@ class Utility {
 		};
 	}
 
+
+	public function getting_level($total_amount){
+		if($total_amount == 0){
+			return 0;
+		}else{
+			return abs($total_amount / 10);
+		}
+	}
+
+	public function getref($rfcode){
+		$masterarray = array();
+	    $firstgen = array();
+	    $secondgen = array();
+	    $thirdgen = array();
+	    $forthgen = array();
+	    $directref = $this->easyquery("SELECT * FROM affilation WHERE referee = '$rfcode'");
+	    foreach ($directref as $singledf) {
+	      $nir = $singledf['referal'];
+	      array_push($firstgen, $nir);
+	      $indirect1 = $this->easyquery("SELECT * FROM affilation WHERE referee = '$nir'");
+	      foreach ($indirect1 as $singledf2) {
+	        $nir2 = $singledf2['referal'];
+	        array_push($thirdgen, $nir2);
+	        $indirect2 = $this->easyquery("SELECT * FROM affilation WHERE referee = '$nir2'");
+	        foreach ($indirect2 as $singledf3 ) {
+	          $nir3 = $singledf3['referal'];
+	          array($thirdgen, $nir3);
+	          $indirect3 = $this->easyquery("SELECT * FROM affilation WHERE referee = '$nir3'");
+	          foreach ($indirect3 as $indirect4) {
+	          	$nir4 = $singledf3['referal'];
+	          	array($forthgen, $nir4);
+	          }
+	        }
+	      }
+	    }
+	    array_push($masterarray, $firstgen, $secondgen, $thirdgen, $forthgen);
+	    return $masterarray;
+	  }
+
 	public function activate_acc($obj){
 		$ref = $obj['ref'];
 		$mbox = $obj['email'];
